@@ -1,29 +1,21 @@
 #!/bin/bash
-echo -n "no of elements"
-read n
-echo "Enter elements :"
-let i=0
-while [ $i -lt $n ]
-do
-    read a[$i]
-    i=`expr $i + 1`
-done
+read -a arr
 temp=0
 echo "the original array is:"
-echo ${a[*]}
+echo ${arr[*]}
 echo
-for ((i=0; i < $n; i++))
+for ((i=0; i < ${#arr[@]}; i++))
 do
     
-    for((j=0; j < $n-1; j++))
+    for((j=0; j < ${#arr[@]}-1; j++))
     do
-        if [ ${a[$((j+1))]} -lt ${a[j]} ]
+        if [ ${arr[$((j+1))]} -lt ${arr[j]} ]
         then
-            temp=${a[j]}
-            a[$j]=${a[$((j+1))]}  
-            a[$((j+1))]=$temp
+            temp=${arr[j]}
+            arr[$j]=${arr[$((j+1))]}  
+            arr[$((j+1))]=$temp
         fi
     done
 done
 echo "the sorted array is"
-echo ${a[*]}
+echo ${arr[*]}
