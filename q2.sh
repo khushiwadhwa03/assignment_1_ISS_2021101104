@@ -1,2 +1,2 @@
 #!/bin/bash
-awk -F " ~" '$1!=""{print $2 " once said, \""$1 "\""}' quotes.txt
+awk -F "~" '$1!= ""{print $2 " once said, \""$1 "\""}' quotes.txt > speech.txt
