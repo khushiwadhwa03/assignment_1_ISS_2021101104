@@ -1,5 +1,7 @@
 #!/bin/bash
-read -a arr
+read -p "Enter input" input  
+IFS=',' 
+read -a arr <<<"$input" 
 temp=0
 echo "the original array is:"
 echo ${arr[*]}
